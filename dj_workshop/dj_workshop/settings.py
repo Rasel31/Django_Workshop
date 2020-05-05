@@ -31,15 +31,16 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'pages.apps.PagesConfig', # pages app
+    'pages.apps.PagesConfig',   # pages app
     'listings.apps.ListingsConfig', #listings app
-    'realtors.apps.RealtorsConfig',# realtors app
+    'realtors.apps.RealtorsConfig', # realtors app
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

@@ -29,6 +29,7 @@ def listings_index(request):
 
 
 def listing(request, listing_id):
+    # get single listing object
     listing_ = Listing.objects.get(id=listing_id)
     return render(request, 'listings/listing.html', {'listing': listing_})
 

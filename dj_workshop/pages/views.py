@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from listings.models import Listing
 from realtors.models import Realtor
+from listings.model_choices import state_choices, bedroom_choices, price_choices
 # pages app views
 
 
@@ -11,6 +12,10 @@ def index(request):
 
     context = {
         'latest': latest,
+        'state_choices': state_choices,
+        'bedroom_choices': bedroom_choices,
+        'price_choices': price_choices,
+
     }
     return render(request,'pages/index.html', context)
 

@@ -1,7 +1,7 @@
 state_choices = {
-    'DH': 'Dhaka',
-    'SYL': 'Sylhet',
-    'CTG': 'Chittagong'
+    'DHAKA': 'Dhaka',
+    'SYLHET': 'Sylhet',
+    'CHITTAGONG': 'Chittagong'
 }
 
 bedroom_choices = {
@@ -11,7 +11,7 @@ bedroom_choices = {
 }
 
 price_choices = {
-    '100000': '100,000',
-    '200000': '200,000',
-    '300000': '200,000'
+    '500000': '$500,000',
+    '600000': '$600,000',
+    '700000': '$700,000'
 }

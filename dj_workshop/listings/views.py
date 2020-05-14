@@ -38,13 +38,45 @@ def listing(request, listing_id):
 def search(request):
     # city_ = request.GET.get('city')  # Do Not Do This or u will be slapped
     get_method = request.GET.copy()
-    # keywords = get_method.get('keywords')
-    # city = get_method.get('city')
-    print(get_method)
+    keywords = get_method.get('keywords') or None
+    city = get_method.get('city') or None
+    print(keywords, city)
+    listing_list = Listing.objects.all()
+
+    # keywords
+    if keywords is not None:
+        keyword = get_method['keywords']
+        # print(keyword)
+        listing_list = listing_list.filter(desc__icontains=keyword)     # django == Django development
+        # listing_list = listing_list.filter(desc__iexact=keyword)     # django == Django
+
+    # city
+    if city is not None:
+        city = get_method['city']
+        listing_list = listing_list.filter(city__iexact=city)
+
+    # state
+    if 'state' in get_method:
+        state = get_method['state']
+        listing_list = listing_list.filter(state__iexact=state)
+
+    # bedrooms
+    if 'bedrooms' in get_method:
+        bedrooms = get_method['bedrooms']
+        print(bedrooms)
+        listing_list = listing_list.filter(bedrooms__lte=int(bedrooms))     # 5 <= 1, 2, 3, 4, 5
+        print(listing_list)
+
+    # price
+    if 'price' in get_method:
+        price = get_method['price']
+        listing_list = listing_list.filter(price__lte=int(price))
+
     context = {
         'state_choices': state_choices,
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
         'get_method': get_method,
+        'listing_list': listing_list,
     }
     return render(request, 'listings/search.html', context)

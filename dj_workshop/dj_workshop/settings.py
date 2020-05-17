@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts.apps.AccountsConfig',   # accounts app
     'pages.apps.PagesConfig',   # pages app
     'listings.apps.ListingsConfig', #listings app
     'realtors.apps.RealtorsConfig', # realtors app

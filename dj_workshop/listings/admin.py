@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Listing
+from .models import Listing, Inquiry
 # Register your models here.
 
 
@@ -11,5 +11,16 @@ class ListingAdmin(admin.ModelAdmin):
     search_fields = ['title', 'description', 'address', 'city', 'state', 'zip_code', 'price']
     list_per_page = 25
 
+    class Meta:
+    	model = Listing
 
 admin.site.register(Listing, ListingAdmin)
+
+
+class InquiryAdmin(admin.ModelAdmin):
+    list_display = ['listing', 'user', 'phone']
+
+    class Meta:
+    	model = Inquiry
+
+admin.site.register(Inquiry, InquiryAdmin)

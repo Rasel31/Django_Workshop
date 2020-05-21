@@ -53,8 +53,8 @@ def login(request):
 		if user is not None:
 			auth.login(request, user)
 			messages.success(request, 'You are successfully logged in!')
-			return HttpResponseRedirect(reverse('index'))
-			#return HttpResponseRedirect(reverse('user-dashboard'))
+			#return HttpResponseRedirect(reverse('index'))
+			return HttpResponseRedirect(reverse('user-dashboard'))
 		else:
 			messages.error(request, 'Invalid Credentials!')
 			return HttpResponseRedirect(reverse('user-login'))
@@ -63,7 +63,10 @@ def login(request):
 
 
 def logout(request):
-    return HttpResponseRedirect(reverse('index'))
+	if request.method == "POST":
+		auth.logout(request)
+		messages.success(request, 'You are now logged out')
+		return HttpResponseRedirect(reverse('index'))
 
 
 def dashboard(request):

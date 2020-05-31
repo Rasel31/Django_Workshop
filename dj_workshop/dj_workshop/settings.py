@@ -137,3 +137,13 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
     messages.ERROR : 'danger'
 }
+
+#Email
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com' # for gmail
+EMAIL_HOST_USER = 'test@gmail.com' # your mail
+EMAIL_HOST_PASSWORD = 'test' # your password
+EMAIL_PORT = 587 # for gmail
+
+#   To Check More
+#https://stackoverflow.com/questions/31324005/django-1-8-sending-mail-using-gmail-smtp
